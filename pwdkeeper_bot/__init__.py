@@ -23,7 +23,7 @@ async def _(bot: Bot, event: PrivateMessageEvent, args: Message = CommandArg()):
     if status == 'yes':
         for res in result:
             if len(res) == 1:
-                msg = f"{word[0]}名有: {res[0]}"    #查询单数据
+                msg = f"{ins}名有: {res[0]}"    #查询单数据
             else:
                 msg = f"{word[0]}为：{res[0]}\n{word[1]}为：{res[1]}\n{word[2]}为：{res[2]}"    #查询多数据
             await caxun.send(msg)
