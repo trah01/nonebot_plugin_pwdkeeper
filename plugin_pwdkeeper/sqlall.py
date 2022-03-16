@@ -125,10 +125,14 @@ class sqlf:
         if str(list[0]) in (word):
             sql = f"delete from {tableu} WHERE {str(list[0])} ='{str(list[1])}'"        #单数据类型删除，用户名等
         elif str(list[0]) == "allthing":                #使用allthing，稍微复杂一点，避免误操
-            sql = cursor.execute(f"delete from {tableu}")
-            db.close()
-            cursor.close()
-            return "数据已经清空"
+            sql = f"delete from {tableu}"
+            try:
+                cursor.execute(sql)
+                db.close()
+                cursor.close()
+                return "数据已经清空"
+            except:
+                return "清空失败"
         else:
             sql = f"delete from {tableu} WHERE {word[0]} ='{str(list[0])}' and  {word[1]} ='{str(list[1])}' "       #软件名用户名组合匹配删除
         list_a.append(str(list[0]))
