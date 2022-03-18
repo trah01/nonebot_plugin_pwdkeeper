@@ -1,0 +1,19 @@
+word : #取决于你的数据库
+ - app
+ #软件或者网站名字
+ - user
+ #用户名，账号
+ - pwd
+ #密码
+host : "localhost"
+#mysql的host，默认是localhost
+port : "3306"
+#mysql的端口，默认是3306
+user : "root"
+#mysql的用户名
+password : "root"
+#mysql的密码
+database : "qqbot"
+#需要连接的库
+table : "myuserdata"
+#需要连接的表
