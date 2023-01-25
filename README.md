@@ -1,2 +1,2 @@
 # pwdkeeper_bot_plugin
-基于nonebot2的插件，实现对接mysql进行已保存的账号密码的查询修改等
+基于nonebot2的插件,使用sqlite对用户名账号密码进行保存,通过聊天的方式查询密码
