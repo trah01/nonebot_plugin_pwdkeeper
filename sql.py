@@ -53,7 +53,7 @@ def query(message, res=[]):
         if str(message[0]) == 'all':
             sql = f'select {word[0]},{word[1]},{word[2]} from {table_user}'
         elif str(message[0]) in word:
-            sql = f'select {message[0]} from {table_user}'
+            sql = f'select distinct {message[0]} from {table_user}'
         else:
             sql = f'select {word[0]},{word[1]},{word[2]} from {table_user} where {word[0]}="{str(message[0])}"'
     elif len(message) == 2:
