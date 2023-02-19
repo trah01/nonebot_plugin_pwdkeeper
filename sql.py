@@ -1,6 +1,7 @@
 import os
-import yaml
 import sqlite3
+
+import yaml
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "bot.db")
@@ -9,18 +10,15 @@ db_path = os.path.join(BASE_DIR, "bot.db")
 def load():
     cur_path = os.path.dirname(os.path.realpath(__file__))
     yaml_path = os.path.join(cur_path, "config.yaml")  # 获取yaml文件路径
-    f = open(yaml_path, 'r', encoding='utf-8')  # open方法打开直接读出来
-    cfg = f.read()
+    with open(yaml_path, 'r', encoding='utf-8') as f:
+        cfg = f.read()
     return cfg
 
 
 def db(sql, mes=[]):
     conn = sqlite3.connect(db_path)
     c = conn.cursor()
-    # try:
     result = c.execute(sql)
-    # except:
-    #     return '出错'
     if result:
         mes = list(result)
     conn.commit()
@@ -63,7 +61,6 @@ def query(message, res=[]):
             sql = f'select {word[0]},{word[1]},{word[2]} from {table_user} where {str(message[0])}="{str(message[1])}";'
     else:
         return '输入有误'
-    print(sql)
     res = db(sql)
     if res:
         return res
