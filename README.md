@@ -1,2 +1,1 @@
-# pwdkeeper_bot_plugin
 基于nonebot2的插件,使用sqlite对用户名账号密码进行保存,通过聊天的方式查询密码
